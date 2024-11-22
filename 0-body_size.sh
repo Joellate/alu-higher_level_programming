@@ -1,3 +1,9 @@
 #!/bin/bash
-# Send a GET request to the URL and measure the size of the response body
-curl -sI "$1" | grep -i Content-Length | awk '{print $2}'
+Check if a URL is passed as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 <URL>"
+  exit 1
+fi
+
+# Send a request using curl and get the response body size
+curl -s "$1" | wc -c
