@@ -1,3 +1,3 @@
 #!/bin/bash
-#  script that take URL and   display size of the response
-curl -s $1 | wc -m
+# Sends a request to the given URL and displays the size of the response body in bytes
+curl -s "$1" -o /dev/null -w "%{size_download}\n
